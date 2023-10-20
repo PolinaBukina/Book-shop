@@ -1,0 +1,40 @@
+.container{
+    max-width: 1170px;
+    width: 100%;
+    padding: 4rem 1rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    box-shadow:
+        0 1px 4px rgba(0, 0, 0, .3),
+        -10px 0 10px -10px rgba(0, 0, 0, .8),
+        10px 0 10px -10px rgba(0, 0, 0, .8);
+}
+
+.container-wrapper{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 25% 25% 25% 25%;
+    row-gap: 1em;
+    cursor: pointer;
+
+    .card{
+        width: 90%;
+        background-color: antiquewhite;
+        border-radius: 1em;
+        margin: 0 auto;
+
+        .image__img{
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            background-size: cover;
+        }
+
+        .card__title .title__price{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1.5em;
+        }
+    }
+}

@@ -1,0 +1,54 @@
+#header{
+    width: 100%;
+    height: 5em;
+    border-radius: 0 0 1em 1em;
+    background-color: #4c00ff;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+
+    .form{
+        transform: translate(0%, 30%);
+        background: white;
+        height: 2.5em;
+        border-radius: 2.5em;
+        padding: 0.3em;
+    }
+    .form__search{
+        color: white;
+        float: right;
+        width: 2.5em;
+        height: 2.5em;
+        border-radius: 50%;
+        background: #2f3640;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .form:hover > .form__input{
+        width: 30%;
+        padding: 0 6px;
+    }
+
+    .form:hover > .form__search{
+        background: #4c00ff;
+    }
+
+    .form__input {
+        border: none;
+        background: none;
+        outline: none;
+        float: left;
+        padding: 0;
+        color: rgb(0, 0, 0);
+        font-size: 16px;
+        line-height: 2.5em;
+        transition: 0.4s;
+        line-height: 2.5em;
+        // width: 50%;
+    }
+}
+
+
