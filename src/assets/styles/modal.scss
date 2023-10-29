@@ -1,0 +1,24 @@
+.show-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: #000000a9;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+}
+
+.show-wrapper.opened {
+    display: flex;
+}
+
+.show-wrapper__content {
+    width: 50vw;
+    height: 50vh;
+    background: white;
+    border-radius: 1em;
+    padding: 1em;
+}
