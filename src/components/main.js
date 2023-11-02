@@ -27,6 +27,7 @@ imgSearch.classList = 'fa-solid fa-magnifying-glass'
 
 btnSearch.append(imgSearch)
 
+<<<<<<< HEAD
 // inputName.addEventListener('input', e => {
 //     const value = ev.target.value.trim()
 //     const elasticItems = document.querySelectorAll('.card')
@@ -52,6 +53,8 @@ btnSearch.append(imgSearch)
 //     })
 //})
 
+=======
+>>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
 //корзина
 const btnBasket = document.createElement('input')
 btnBasket.type = 'button'
@@ -92,6 +95,7 @@ function Card(name) {
     image.className = 'image__img'
     image.src=`${name.image}`
 
+<<<<<<< HEAD
     const procentAndQuick = document.createElement('div')
     procentAndQuick.className = 'image__all all'
 
@@ -108,13 +112,34 @@ function Card(name) {
 
     // imageCard.append(image, procentSale, btnToBasket, quickViewButton)
     imageCard.append(image, procentAndQuick)
+=======
+    const procentSale = document.createElement('p')
+    procentSale.className = 'image__discount'
+    procentSale.innerHTML = `${name.procentSale}`
+
+    const btnToBasket = document.createElement('div')
+    btnToBasket.type = 'button'
+    btnToBasket.value = ' '
+    btnToBasket.className = 'card__btn'
+
+    const quickViewButton = document.createElement('input')
+    quickViewButton.type = 'button'
+    quickViewButton.value = 'Быстрый просмотр'
+    quickViewButton.className = 'image__quickViewButton'
+
+    imageCard.append(image, procentSale, btnToBasket, quickViewButton)
+>>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
 
     //div с описанием под картинкой 
     const buttons = document.createElement('div')
     buttons.className = 'card__title title'
     const titleCard = document.createElement('div')
     titleCard.className = 'title__description'
+<<<<<<< HEAD
     titleCard.innerHTML = `${name.name} <br> ${name.bookName}`
+=======
+    titleCard.innerHTML = `${name.name} ${name.bookName}`
+>>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
 
     // div с ценой
     const price = document.createElement('div')
@@ -130,10 +155,20 @@ function Card(name) {
 
     price.append(titlePriceSale, titlePrice)
 
+<<<<<<< HEAD
     const addToBasketButton = document.createElement('input')
     addToBasketButton.type = 'button'
     addToBasketButton.value = 'Добавить в корзину'
     addToBasketButton.className = 'title__button'
+=======
+    const titleName = document.createElement('p')
+    titleName.className = 'title__name'
+
+    const addToBasketButton = document.createElement('input')
+    addToBasketButton.type = 'button'
+    addToBasketButton.value = ' '
+    addToBasketButton.className = 'addToBasketButton'
+>>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
 
     // const rightButtons = document.createElement('div')
     // rightButtons.className = 'card-buttons__rightbuttons'
@@ -145,6 +180,7 @@ function Card(name) {
     // leftButtons.append(quickViewButton, title)
     // buttons.append(leftButtons, rightButtons)
 
+<<<<<<< HEAD
         
     // быстрый просмотр
     const modal = document.createElement('div')
@@ -187,6 +223,9 @@ function Card(name) {
     root.append(modal)
 
     buttons.append(titleCard, price, addToBasketButton)
+=======
+    buttons.append(titleCard, price, titleName, addToBasketButton)
+>>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
 
     addToBasketButton.addEventListener('click', (event) => {
         // const cardContainer = this.wrapper
@@ -198,6 +237,7 @@ function Card(name) {
         // cardContainer.remove()
     })
 
+<<<<<<< HEAD
     // обработчик событий при нажатии на кнопку быстрого просмотра
     quickViewButton.addEventListener('click', e => {
         modal.classList.add('opened')
@@ -211,6 +251,10 @@ function Card(name) {
         if (e.target.id === modal.id) {
             modal.classList.remove('opened')
         }
+=======
+    quickViewButton.addEventListener('click', () => {
+        // this.wrapper.style.backgroundColor = 'gray'
+>>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
     })
 
     this.destroy = () => {
@@ -244,6 +288,7 @@ let favoriteUsers = []
         containerWrapper.append(card)
     })
 
+<<<<<<< HEAD
     // root.addEventListener('click', e => {
     //     e.preventDefault()
 
@@ -325,3 +370,12 @@ let favoriteUsers = []
 //     }
 // })
 
+=======
+    root.addEventListener('click', e => {
+        e.preventDefault()
+
+        console.log(e.target.parentElement.id)
+        favoriteUsers.push(e.target.parentElement.id)
+    })
+})()
+>>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd

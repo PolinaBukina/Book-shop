@@ -16,6 +16,10 @@
     width: 100%;
     grid-template-columns: 25% 25% 25% 25%;
     row-gap: 1em;
+<<<<<<< HEAD
+=======
+    cursor: pointer;
+>>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
 
     .card{
         width: 90%;
@@ -23,6 +27,7 @@
         border-radius: 1em;
         margin: 0 auto;
 
+<<<<<<< HEAD
         &.hide {
             display: none;
         }
@@ -136,6 +141,19 @@
                 // background: linear-gradient(to bottom,  #3500b2, rgb(105, 32, 173));
                 background: linear-gradient(to bottom,  #2c0090, rgb(85, 26, 140));
             }
+=======
+        .image__img{
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            background-size: cover;
+        }
+
+        .card__title .title__price{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1.5em;
+>>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
         }
     }
 }

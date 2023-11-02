@@ -17,5 +17,9 @@ modalWindow.addEventListener('click', e => {
 })
 
 export {
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
 }
