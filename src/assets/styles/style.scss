@@ -1,36 +1,15 @@
 @import url('./header.scss');
-@import url('./container.scss');
-<<<<<<< HEAD
+@import url('./cards.scss');
 @import url('./modal.scss');
-=======
->>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
+@import url('./basket.scss');
+@import url('./loader.scss');
+
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@700&family=Mulish:wght@200;400&family=Open+Sans:wght@600;700&family=Raleway:wght@400;700;900&display=swap');
+
 
 body {
     margin: 0;
     padding: 0;
+    font-family: Mulish;
+    font-weight: 400;
 }
-
-// .shadow-wrapper {
-//     width: 100vw;
-//     height: 100vh;
-//     background: #000000a9;
-
-//     display: none;
-//     justify-content: center;
-//     align-items: center;
-
-//     position: fixed;
-//     top: 0;
-// }
-
-// .shadow-wrapper.opened {
-//     display: flex;
-// }
-
-// .content {
-//     width: 50vw;
-//     height: 50vh;
-//     background: white;
-//     border-radius: 1em;
-//     padding: 1em;
-// }

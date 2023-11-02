@@ -27,47 +27,48 @@ imgSearch.classList = 'fa-solid fa-magnifying-glass'
 
 btnSearch.append(imgSearch)
 
-<<<<<<< HEAD
-// inputName.addEventListener('input', e => {
-//     const value = ev.target.value.trim()
-//     const elasticItems = document.querySelectorAll('.card')
-//     const searchRegExp = new RegExp(value, 'gi')
-//     console.log(value)
+inputName.addEventListener('input', e => {
+    const value = e.target.value.trim()
+    const elasticItems = document.querySelectorAll('.card')
+    const searchRegExp = new RegExp(value, 'gi')
+    let foundCardsCount = 0 // переменная для хранения количества найденных карточек
 
-//     if (value === '') {
-//         elasticItems.forEach((el) => {
-//             el.classList.remove('hide')
-//         })
-//         return
-//     }
+    if (value === '') {
+        elasticItems.forEach((el) => {
+            el.classList.remove('hide')
+        })
+        return
+    }
 
-//     elasticItems.forEach((el) => {
-//         const innerCard = el.querySelector('.card2')
-//         const elementText = innerCard.textContent
-//         const isContainsSearchRequest = searchRegExp.test(elementText)
-//         if (!isContainsSearchRequest) {
-//             el.classList.add('hide')
-//         } else {
-//             el.classList.remove('hide')
-//         }
-//     })
-//})
+    elasticItems.forEach((el) => {
+        const innerCard = el.querySelector('.title__description')
+        const elementText = innerCard.textContent
+        const isContainsSearchRequest = searchRegExp.test(elementText)
+        if (!isContainsSearchRequest) {
+            el.classList.add('hide')
+        } else {
+            el.classList.remove('hide')
+            foundCardsCount++ // увеличиваем количество найденных карточек
+        }
+    })
+})
 
-=======
->>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
 //корзина
 const btnBasket = document.createElement('input')
 btnBasket.type = 'button'
 btnBasket.className = 'header__basket'
 btnBasket.value = 'Корзина'
-// const iconElement = document.createElement('i')
-// iconElement.classList = 'fa-regular fa-cart-shopping'
 
-// btnBasket.append(iconElement)
+btnBasket.addEventListener('click', e => {
+    modalBasket.classList.add('opened')
+})
 
-const logo = document.createElement('img')
-// logo.src = '../assets/images/В4_шрифт_Poppins.jpg'
-logo.src = 'https://img.freepik.com/premium-vector/book-store-logo-colorful-vector-design-book-logo-with-letters-bs_555652-51.jpg'
+// const logo = document.createElement('img')
+// logo.src = 'https://img.freepik.com/premium-vector/book-store-logo-colorful-vector-design-book-logo-with-letters-bs_555652-51.jpg'
+
+const logo = document.createElement('p')
+logo.className = 'header__logo'
+logo.textContent = 'BOOK-SHOOP'
 
 formSearch.append(inputName, btnSearch)
 
@@ -77,6 +78,48 @@ container.append(containerWrapper)
 
 root.append(header, container)
 
+
+// создание модального окна для basket
+const modalBasket = document.createElement('div')
+modalBasket.className = 'basket-wrapper'
+
+const modalBasketCard = document.createElement('div')
+modalBasketCard.className = 'content-basket__all'
+
+const modalBasketBack = document.createElement('div')
+modalBasketBack.className = 'content-basket'
+
+const modalBasketP = document.createElement('p')
+modalBasketP.className = 'content-basket__p'
+modalBasketP.textContent = 'Корзина'
+
+const modalBasketRemove = document.createElement('input')
+modalBasketRemove.type = 'button'
+modalBasketRemove.value = 'Очистить корзину'
+modalBasketRemove.className = 'content-basket__remove'
+
+
+modalBasketCard.append(modalBasketP, modalBasketRemove)
+
+modalBasketBack.append(modalBasketCard)
+modalBasket.append(modalBasketBack)
+
+root.append(modalBasket)
+
+modalBasket.addEventListener('click', e => {
+    if (e.target.type === 'button') {
+        const basketWrapper = document.querySelector('.basket-wrapper')
+        const childDivs = basketWrapper.querySelectorAll('.content-basket .basket-wrapper__content');
+    
+        // Удалить каждый дочерний div
+        childDivs.forEach(div => {
+            div.remove();
+        });
+    }
+    else{
+        modalBasket.classList.remove('opened')
+    }
+})
 
 // проба 
 function Card(name) {
@@ -95,7 +138,6 @@ function Card(name) {
     image.className = 'image__img'
     image.src=`${name.image}`
 
-<<<<<<< HEAD
     const procentAndQuick = document.createElement('div')
     procentAndQuick.className = 'image__all all'
 
@@ -112,34 +154,13 @@ function Card(name) {
 
     // imageCard.append(image, procentSale, btnToBasket, quickViewButton)
     imageCard.append(image, procentAndQuick)
-=======
-    const procentSale = document.createElement('p')
-    procentSale.className = 'image__discount'
-    procentSale.innerHTML = `${name.procentSale}`
-
-    const btnToBasket = document.createElement('div')
-    btnToBasket.type = 'button'
-    btnToBasket.value = ' '
-    btnToBasket.className = 'card__btn'
-
-    const quickViewButton = document.createElement('input')
-    quickViewButton.type = 'button'
-    quickViewButton.value = 'Быстрый просмотр'
-    quickViewButton.className = 'image__quickViewButton'
-
-    imageCard.append(image, procentSale, btnToBasket, quickViewButton)
->>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
 
     //div с описанием под картинкой 
     const buttons = document.createElement('div')
     buttons.className = 'card__title title'
     const titleCard = document.createElement('div')
     titleCard.className = 'title__description'
-<<<<<<< HEAD
     titleCard.innerHTML = `${name.name} <br> ${name.bookName}`
-=======
-    titleCard.innerHTML = `${name.name} ${name.bookName}`
->>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
 
     // div с ценой
     const price = document.createElement('div')
@@ -147,47 +168,25 @@ function Card(name) {
 
     const titlePriceSale = document.createElement('p')
     titlePriceSale.className = 'price__sale'
-    titlePriceSale.innerHTML = `${name.price}`
+    titlePriceSale.innerHTML = `${name.price} BYN`
 
     const titlePrice = document.createElement('p')
     titlePrice.className = 'price__full'
-    titlePrice.innerHTML = `${name.priceSale}`
+    titlePrice.innerHTML = `${name.priceSale} BYN`
 
     price.append(titlePriceSale, titlePrice)
 
-<<<<<<< HEAD
     const addToBasketButton = document.createElement('input')
     addToBasketButton.type = 'button'
     addToBasketButton.value = 'Добавить в корзину'
     addToBasketButton.className = 'title__button'
-=======
-    const titleName = document.createElement('p')
-    titleName.className = 'title__name'
-
-    const addToBasketButton = document.createElement('input')
-    addToBasketButton.type = 'button'
-    addToBasketButton.value = ' '
-    addToBasketButton.className = 'addToBasketButton'
->>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
-
-    // const rightButtons = document.createElement('div')
-    // rightButtons.className = 'card-buttons__rightbuttons'
-
-    // const leftButtons = document.createElement('div')
-    // leftButtons.className = 'card-buttons__leftbuttons'
-
-    // rightButtons.append(addToBasketButton)
-    // leftButtons.append(quickViewButton, title)
-    // buttons.append(leftButtons, rightButtons)
-
-<<<<<<< HEAD
-        
+    
     // быстрый просмотр
     const modal = document.createElement('div')
     modal.className = 'show-wrapper'
 
     const modalContent = document.createElement('div')
-    modalContent.className = 'show-wrapper__content'
+    modalContent.className = 'show-wrapper__content content'
 
     // добавление (имя, название, цена, книги, картинка)
     const modalCard = document.createElement('div')
@@ -195,72 +194,90 @@ function Card(name) {
 
     const modalName = document.createElement('p')
     modalName.className = 'content__name'
-    modalName.innerHTML = `${name.name} ${name.bookName}`
+    modalName.innerHTML = `Автор: ${name.name} <br><br> Произведение: ${name.bookName}`
 
     const modalPrice = document.createElement('p')
     modalPrice.className = 'content__price'
-    modalPrice.innerHTML = `${name.price}`
+    modalPrice.innerHTML = `Цена без скидки: ${name.price} BYN`
 
     const modalPriceSale = document.createElement('p')
     modalPriceSale.className = 'content__pricesale'
-    modalPriceSale.innerHTML = `${name.priceSale}`
+    modalPriceSale.innerHTML = `Цена со скидкой: ${name.priceSale} BYN`
 
     const modalImg = document.createElement('img')
     modalImg.className = 'content__image'
-    modalImg.innerHTML = `${name.image}`
+    modalImg.src = `${name.image}`
+
+    const modalBasket = document.createElement('input')
+    modalBasket.type = 'button'
+    modalBasket.value = 'Добавить в корзину'
+    modalBasket.className = 'content__basket'
 
     const modalHide = document.createElement('input')
     modalHide.type = 'button'
     modalHide.value = 'x'
     modalHide.className = 'content__hide'
 
-    // modalCard.append(modalName, modalPrice, modalPriceSale, modalImg)
+    modalCard.append(modalName, modalPrice, modalPriceSale, modalBasket)
 
-    // modalContent.append(modalCard)
+    modalContent.append(modalImg, modalCard)
 
     modal.append(modalContent, modalHide)
     
     root.append(modal)
 
     buttons.append(titleCard, price, addToBasketButton)
-=======
-    buttons.append(titleCard, price, titleName, addToBasketButton)
->>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
 
+    // обработчик событий при нажатии на кнопку "добавить в корзину" на карточке
     addToBasketButton.addEventListener('click', (event) => {
-        // const cardContainer = this.wrapper
-        // let cardStorage = JSON.parse(localStorage.getItem('card-storage')) || []
-        // const dataIndex = Array.from(cardContainer.parentElement.children).indexOf(cardContainer)
-        // cardStorage.splice(dataIndex, 1)
-        // localStorage.setItem('card-storage', JSON.stringify(cardStorage))
+        const modalBasketCard = document.querySelector('.content-basket')
+        
+        const newBookInfo = document.createElement('div')
+        newBookInfo.className = 'basket-wrapper__content'
+        
+        const newModalBasketName = document.createElement('div')
+        newModalBasketName.className = 'content-basket__name'
+        newModalBasketName.innerHTML = `${name.name}, <br> ${name.bookName}`
 
-        // cardContainer.remove()
+        const newModalBasketPriceSale = document.createElement('p')
+        newModalBasketPriceSale.className = 'content-basket__pricesale'
+        newModalBasketPriceSale.innerHTML = `Стоимость ${name.priceSale} BYN`
+        
+        newBookInfo.append(newModalBasketName, newModalBasketPriceSale)
+        modalBasketCard.appendChild(newBookInfo)
     })
 
-<<<<<<< HEAD
     // обработчик событий при нажатии на кнопку быстрого просмотра
     quickViewButton.addEventListener('click', e => {
         modal.classList.add('opened')
     })
 
+    modal.addEventListener('click', (event) => {
+        if (event.target.type === 'button'){
+            const modalBasketCard = document.querySelector('.content-basket')
+        
+            const newBookInfo = document.createElement('div')
+            newBookInfo.className = 'basket-wrapper__content'
+            
+            const newModalBasketName = document.createElement('div')
+            newModalBasketName.className = 'content-basket__name'
+            newModalBasketName.innerHTML = `${name.name}, <br> ${name.bookName}`
+
+            const newModalBasketPriceSale = document.createElement('p')
+            newModalBasketPriceSale.className = 'content-basket__pricesale'
+            newModalBasketPriceSale.innerHTML = `Стоимость ${name.priceSale} BYN`
+            
+            newBookInfo.append(newModalBasketName, newModalBasketPriceSale)
+            modalBasketCard.appendChild(newBookInfo)
+        }
+        else{
+            modal.classList.remove('opened')
+        }
+    })
+
     modalHide.addEventListener('click', e => {
         modal.classList.remove('opened')
     })
-
-    modal.addEventListener('click', e => {
-        if (e.target.id === modal.id) {
-            modal.classList.remove('opened')
-        }
-=======
-    quickViewButton.addEventListener('click', () => {
-        // this.wrapper.style.backgroundColor = 'gray'
->>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
-    })
-
-    this.destroy = () => {
-        this.wrapper.remove()
-        this.wrapper = null
-    }
 
     wrapper.append(imageCard, buttons)
 
@@ -269,9 +286,17 @@ function Card(name) {
     return wrapper
 }
 
+const isLoadingShow = false
+
+const loading = document.createElement('div')
+loading.className = 'loader'
+
+document.body.append(loading)
+
 const getCards = async () => {
     const response = await fetch('https://653044416c756603295e7d3c.mockapi.io/cards')
     const data = await response.json()
+    loading.remove()
     return data
 }
 
@@ -287,95 +312,5 @@ let favoriteUsers = []
         const card = new Card(user)
         containerWrapper.append(card)
     })
-
-<<<<<<< HEAD
-    // root.addEventListener('click', e => {
-    //     e.preventDefault()
-
-    //     console.log(e.target.parentElement.id)
-    //     favoriteUsers.push(e.target.parentElement.id)
-    // })
 })()
 
-
-
- // быстрый просмотр
-// const modal = document.createElement('div')
-// modal.className = 'show-wrapper'
-
-// const modalContent = document.createElement('div')
-// modalContent.className = 'shadow-wrapper__content'
-
-//  // еще нужно добавить (имя, название, цена, книги, картинка)
-
-// const modalHide = document.createElement('input')
-// modalHide.type = 'button'
-// modalHide.value = 'x'
-// modalHide.className = 'shadow-wrapper__hide'
-
-// modalContent.append(modalHide)
-
-// modal.append(modalContent)
-
-//  // обработчик событий при нажатии на кнопку быстрого просмотра
-// quickViewButton.addEventListener('click', e => {
-//     modal.classList.add('opened')
-// })
-
-// modalHide.addEventListener('click', e => {
-//     modal.classList.remove('opened')
-// })
-
-// modal.addEventListener('click', e => {
-//     if (e.target.id === modal.id) {
-//         modal.classList.remove('opened')
-//     }
-// })
-
-// root.append(modal)
-
-
-// // быстрый просмотр
-// const modal = document.createElement('div')
-// modal.className = 'show-wrapper'
-
-// const modalContent = document.createElement('div')
-// modalContent.className = 'shadow-wrapper__content'
-
-// // еще нужно добавить (имя, название, цена, книги, картинка)
-
-// const modalHide = document.createElement('input')
-// modalHide.type = 'button'
-// modalHide.value = 'x'
-// modalHide.className = 'shadow-wrapper__hide'
-
-// modalContent.append(modalHide)
-
-// modal.append(modalContent)
-
-// buttons.append(modal)
-
-// // обработчик событий при нажатии на кнопку быстрого просмотра
-// quickViewButton.addEventListener('click', e => {
-//     modal.classList.add('opened')
-// })
-
-// modalHide.addEventListener('click', e => {
-//     modal.classList.remove('opened')
-// })
-
-// modal.addEventListener('click', e => {
-//     if (e.target.id === modal.id) {
-//         modal.classList.remove('opened')
-//     }
-// })
-
-=======
-    root.addEventListener('click', e => {
-        e.preventDefault()
-
-        console.log(e.target.parentElement.id)
-        favoriteUsers.push(e.target.parentElement.id)
-    })
-})()
->>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd

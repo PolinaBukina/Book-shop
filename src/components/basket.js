@@ -15,11 +15,3 @@ modalWindow.addEventListener('click', e => {
         modalWindow.classList.remove('opened')
     }
 })
-
-export {
-<<<<<<< HEAD
-
-=======
-    
->>>>>>> 3168a940bc1fba10d128061c9fc8772a38c8adbd
-}
